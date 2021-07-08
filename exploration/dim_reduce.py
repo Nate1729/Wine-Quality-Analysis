@@ -24,7 +24,7 @@ def combination_scatter(df, folder):
 		plt.savefig(f'./{folder}/{label[1]}_vs_{label[0]}.png', dpi=800)
 		plt.clf()
 
-def cov_heatmap(df, title=None, axis_tilt=0):
+def cov_heatmap(df, title='heatmap', axis_tilt=0):
 	cov = df.cov()	
 	labels = cov.columns
 
@@ -44,10 +44,33 @@ def cov_heatmap(df, title=None, axis_tilt=0):
 	plt.title(title)
 	# Full size figure
 	fig.tight_layout()
+	plt.savefig(f'{title}.png', dpi=800)
 
-	plt.show()	
+def normalize_dataframe(df, center=False):
+	""" 
+	This divides each series by it standard deviation.
+	It does *not* center the data at zero"""
+
+	if center:
+		for col in list(df.columns):
+			df[col] = (df[col] - df[col].mean())/ df[col].std()
+	else:
+		for col in list(df.columns):
+			df[col] = df[col]/df[col].std()
+
+	return df
+
+
 
 # Loading data
 df_red_wine = pd.read_csv('../data/winequality-red.csv', delimiter=';')
 df_white_wine = pd.read_csv('../data/winequality-white.csv', delimiter=';')
+
+# Normalize the data
+df_red_wine = normalize_dataframe(df_red_wine)
+df_white_wine = normalize_dataframe(df_white_wine)
+
+# Plotting Covariance matrix
+cov_heatmap(df_red_wine, "Red Wine Covariance", 90)
+cov_heatmap(df_white_wine, "White Wine Covariance", 90)
 
