@@ -12,7 +12,7 @@ dimensional reduction analysis is also performed seperately.
 
 ## Red Wine Dim-Reduction
 The dim_reduce.py script produced the following result
-![title](RedWineCovariance.png)
+![title](exploration/RedWineCovariance.png)
 It is important to note that the variables were normalized
 before the taking their covariance. This would not allow variables
 with a larger dynamic range to create a fictious correlation.
@@ -29,11 +29,12 @@ I am curious to see if the pH can cover the other three measures of acidity in
 the model.
 
 These changes produce the following covariance matrix
-![](RedWineCovariance_adj.png)
+![](exploration/RedWineCovariance_adj.png)
 
-### Results from using linear regresion
+## Results from using linear regresion
 **Coefficient of determination**
 * Least Squares 	: 0.259
 * Ridge Regression 	: 0.259
+
 The dimensionality reduction didn't pan out; the model did not capture a significant
 portion of the variation of the data.
