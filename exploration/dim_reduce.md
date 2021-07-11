@@ -21,7 +21,12 @@ The following variables are proposed to be removed
 * free sulfur dioxide
 * citric acid
 * fixed acidity
+* Volatile acidity
 * chlorides
+* Density (both alcohol and pH have strong correlations)
+
+I am curious to see if the pH can cover the other three measures of acidity in
+the model.
 
 These changes produce the following covariance matrix
 ![](RedWineCovariance_adj.png)

@@ -24,7 +24,7 @@ def combination_scatter(df, folder):
 		plt.savefig(f'./{folder}/{label[1]}_vs_{label[0]}.png', dpi=800)
 		plt.clf()
 
-def cov_heatmap(df, title='heatmap', axis_tilt=0):
+def cov_heatmap(df, title='heatmap', axis_tilt=0, kill_diag=True):
 	cov = df.cov()	
 	labels = cov.columns
 
@@ -71,6 +71,6 @@ df_red_wine = normalize_dataframe(df_red_wine)
 df_white_wine = normalize_dataframe(df_white_wine)
 
 # Plotting Covariance matrix
-cov_heatmap(df_red_wine, "Red Wine Covariance", 90)
-cov_heatmap(df_white_wine, "White Wine Covariance", 90)
+cov_heatmap(df_red_wine.drop(columns=['density', 'free sulfur dioxide', 'citric acid', 'fixed acidity', 'chlorides', 'volatile acidity', 'quality']), "RedWineCovariance_adj", 90)
+#cov_heatmap(df_white_wine, "WhiteWineCovariance", 90)
 
