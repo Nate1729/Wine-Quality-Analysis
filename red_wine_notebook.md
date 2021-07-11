@@ -31,10 +31,29 @@ the model.
 These changes produce the following covariance matrix
 ![](exploration/RedWineCovariance_adj.png)
 
-## Results from using linear regresion
+## Results from using linear regression
 **Coefficient of determination**
 * Least Squares 	: 0.259
 * Ridge Regression 	: 0.259
 
 The dimensionality reduction didn't pan out; the model did not capture a significant
 portion of the variation of the data.
+
+## Utilizing PCA and Linear Regression Together
+**Coefficient of Determination**
+* Least Squares 	: 0.33
+* Ridge Regression 	: 0.33
+
+Utilizting PCA reduction (90% threshold) did improve the variation captured but
+the amount of variation captures is still low
+
+## Utilizing Random Forest Model
+**Model Accuracy**
+* Random Forest : 58%
+
+Although this is a higher percentage than the other regression models, the numbers
+cannot be compared. One is a ratio of variances and the other is a ratio of correct
+vs incorrect classifications.
+
+## Improving the Random Forest Model
+If you look at the graph below
