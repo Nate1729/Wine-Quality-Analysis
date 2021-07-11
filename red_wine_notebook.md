@@ -49,11 +49,17 @@ the amount of variation captures is still low
 
 ## Utilizing Random Forest Model
 **Model Accuracy**
-* Random Forest : 58%
+* Random Forest : 65%
 
 Although this is a higher percentage than the other regression models, the numbers
 cannot be compared. One is a ratio of variances and the other is a ratio of correct
 vs incorrect classifications.
 
 ## Improving the Random Forest Model
-If you look at the graph below
+
+![](exploration/red_wine_countplot.png)
+What the graph above is showing is that certain "classifications" are vastly 
+out-numbered. Namely 2,3, and 8 have very small representation compared to 5 and 6
+when it comes to quality. The common solution to this problem is something called
+Synthetic Minority Oversampling Technique or SMOTE. Luckily, this has been already
+implemented in a packaged called imbalanced learning.
