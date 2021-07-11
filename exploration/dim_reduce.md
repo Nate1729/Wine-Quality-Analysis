@@ -30,3 +30,10 @@ the model.
 
 These changes produce the following covariance matrix
 ![](RedWineCovariance_adj.png)
+
+### Results from using linear regresion
+**Coefficient of determination**
+* Least Squares 	: 0.259
+* Ridge Regression 	: 0.259
+The dimensionality reduction didn't pan out; the model did not capture a significant
+portion of the variation of the data.
