@@ -1,6 +1,7 @@
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
+import seaborn as sns
 from itertools import combinations
 from sklearn.preprocessing import MinMaxScaler
 
@@ -60,17 +61,28 @@ def normalize_dataframe(df, center=False):
 
 	return df
 
+def feature_box_plot(df_data, output, location='./'):
+	col_feat = list(df_data.columns)
+	col_feat.remove(output)
+
+	for col in col_feat:
+		sns.boxplot(x=output, y=col, data=df_data)
+		plt.savefig(f'{location}_{col}_vs_{output}.png', dpi=800)
+		plt.clf()
 
 
 # Loading data
 df_red_wine = pd.read_csv('../data/winequality-red.csv', delimiter=';')
 df_white_wine = pd.read_csv('../data/winequality-white.csv', delimiter=';')
 
+# Make red wine box plots
+#feature_box_plot(df_red_wine, 'quality', 'box_plot_red/red_')
+
 # Normalize the data
-df_red_wine = normalize_dataframe(df_red_wine)
-df_white_wine = normalize_dataframe(df_white_wine)
+# df_red_wine = normalize_dataframe(df_red_wine)
+# df_white_wine = normalize_dataframe(df_white_wine)
 
 # Plotting Covariance matrix
-cov_heatmap(df_red_wine.drop(columns=['density', 'free sulfur dioxide', 'citric acid', 'fixed acidity', 'chlorides', 'volatile acidity', 'quality']), "RedWineCovariance_adj", 90)
+#cov_heatmap(df_red_wine.drop(columns=['density', 'free sulfur dioxide', 'citric acid', 'fixed acidity', 'chlorides', 'volatile acidity', 'quality']), "RedWineCovariance_adj", 90)
 #cov_heatmap(df_white_wine, "WhiteWineCovariance", 90)
 
