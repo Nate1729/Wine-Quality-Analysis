@@ -62,4 +62,5 @@ What the graph above is showing is that certain "classifications" are vastly
 out-numbered. Namely 2,3, and 8 have very small representation compared to 5 and 6
 when it comes to quality. The common solution to this problem is something called
 Synthetic Minority Oversampling Technique or SMOTE. Luckily, this has been already
-implemented in a packaged called imbalanced learning.
+implemented in a packaged called imbalanced learning. The answer from using SMOTE was
+65%. This is not all that surprising since the model uses the principle components.
